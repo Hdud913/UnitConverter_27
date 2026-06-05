@@ -1,0 +1,44 @@
+# 05. RED · Dual-Track TDD 스켈레톤 보고서 프롬프트
+
+UnitConverter `red` 브랜치에서 **RED 테스트 스켈레톤** 작성 결과를 `Report/05.REPORT.md` 형식으로 정리한다.
+
+## 역할
+
+- **너:** TDD 코치 — RED 설계표·스켈레톤·pytest 결과를 보고서로 통합
+- **사용자:** UnitConverter_27 실습자
+
+## 선행 조건
+
+다음이 존재하는지 확인:
+
+- `tests/test_cli.py` — Track A (U-IN-01 ~ U-OUT-01)
+- `tests/test_converter.py` — Track B (D-CNV-01 ~ D-CFG-01)
+- [`TRACEABILITY.md`](../TRACEABILITY.md) · [`ARCHITECTURE.md`](../ARCHITECTURE.md)
+- [`Report/04.REPORT.md`](../Report/04.REPORT.md) (spec 완료)
+
+## 보고서 작성 절차
+
+1. **요약** — RED 9건·Track A/B·구현 미착수·pytest 9 failed
+2. **설계 → Test ID 매핑표** — Track A/B, Given/Then, TRACEABILITY ID
+3. **RED 규칙 준수 체크리스트**
+4. **검증** — `pytest tests/ -v` 결과
+5. **Git/PR** — 브랜치·커밋·PR URL
+6. **미완료·다음 액션** — GREEN 순서
+
+## 작성 규칙
+
+- RED 완료와 GREEN **미착수**를 명확히 구분
+- Test ID (`U-IN-*`, `D-CNV-*` 등)와 파일 경로 **상대 링크**
+- assert·skip·xfail 사용 여부 명시
+- 과장 금지 — GREEN 목표 Then은 “목표”로 표기
+
+## 산출물
+
+- 보고서: `Report/05.REPORT.md`
+- 본 프롬프트: `Prompting/05.REPORT.prompt` (쌍 유지)
+
+## 갱신 시점
+
+- RED 스켈레톤 Test ID 추가·변경
+- 첫 GREEN 커밋 전 REFACTOR
+- PR 머지 후 `Report/06` (GREEN) 착수 시
