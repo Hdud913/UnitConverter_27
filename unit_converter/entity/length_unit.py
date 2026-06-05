@@ -21,6 +21,10 @@ class LengthUnit:
     @classmethod
     def from_name(cls, name: str) -> "LengthUnit":
         ratios = _load_ratios()
+        if name == "meter":
+            return cls("meter", 1.0)
         if name == "feet":
             return cls("feet", 1.0 / ratios["meter_to_feet"])
+        if name == "yard":
+            return cls("yard", 1.0 / ratios["meter_to_yard"])
         raise ValueError(f"Unknown unit: {name}")
