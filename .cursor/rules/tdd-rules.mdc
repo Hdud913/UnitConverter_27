@@ -1,5 +1,5 @@
 ---
-description: UnitConverter TDD·도메인 규칙 — 비율 단일 출처, OCP/SRP, RED 단계 제약
+description: UnitConverter TDD·ECB·도메인 규칙 — 비율 단일 출처, OCP/SRP, RED 단계 제약
 alwaysApply: true
 ---
 
@@ -27,8 +27,36 @@ alwaysApply: true
 
 ## SRP
 
-- **Parser** / **Registry** / **Converter** / **Formatter** 역할 분리 유지
+- **Entity** / **Control** / **Boundary** / **Infrastructure** 역할 분리 유지
 - 모듈 간 책임 침범 금지 (`ARCHITECTURE.md` 참조)
+
+## ECB (Entity · Control · Boundary)
+
+### import 방향
+
+- **boundary → control → entity** (단방향)
+- **entity**에서 `boundary` · `control` import **금지**
+- entity는 순수 도메인 로직만; boundary/control은 entity를 호출하는 쪽
+
+### 계층별 작성 금지
+
+| 계층 | 금지 |
+|------|------|
+| **Entity** | boundary/control import, I/O·UI 문자열 |
+| **Control** | UI 문자열 생성, I/O 검증 로직 (파싱·형식 검사는 boundary) |
+| **Boundary** | Domain 변환 **알고리즘** 직접 구현 (entity/control에 위임) |
+
+### Dual-Track 테스트 정책
+
+| Track | 경로 | Mock |
+|-------|------|------|
+| **B — Entity** | `tests/entity/` | Domain Mock **금지** — 실제 Entity 직접 호출 |
+| **A — Boundary** | `tests/boundary/` | Domain은 **Mock으로 격리** |
+
+### 테스트 파일명
+
+- **Entity (Track B):** `test_d_*.py` (예: `test_d_cnv_01.py`)
+- **Boundary (Track A):** `test_u_*.py` (예: `test_u_in_01.py`)
 
 ## RED 단계 규칙
 

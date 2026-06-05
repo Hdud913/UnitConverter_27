@@ -6,7 +6,7 @@ Agent 대화 기록을 `agent-transcripts/*.jsonl`에서 Markdown으로 export�
 |---|------|------------|------|
 | 01 | [01.mom-test-interview.transcript.md](01.mom-test-interview.transcript.md) | `f5244e60-a202-4002-95d7-23cf87626a76` | UnitConverter Mom Test 인터뷰 |
 | 02 | [02.tdd-red-design.transcript.md](02.tdd-red-design.transcript.md) | `ae72fa93-88d8-44da-8b45-5e85282f26ae` | Dual-Track TDD RED 설계표 |
-| 03 | *(export 예정)* | — | RED 스켈레톤 · README/Report/Prompt 갱신 |
+| 03 | [03.ecb-red-skeleton.transcript.md](03.ecb-red-skeleton.transcript.md) | `cbdc36a0-c77c-44af-acae-611873b407b1` | ECB RED 재구성 · PRD · green rollback |
 
 **원본 경로:** `.cursor/projects/.../agent-transcripts/<uuid>/<uuid>.jsonl`
 
