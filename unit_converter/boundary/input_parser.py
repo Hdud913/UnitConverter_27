@@ -18,4 +18,7 @@ def parse(user_input: str) -> tuple[str, float]:
     except ValueError as exc:
         raise ParseError(_FORMAT_ERROR) from exc
 
+    if value < 0:
+        raise ParseError("Negative values are not allowed")
+
     return unit, value
