@@ -1,0 +1,50 @@
+# 04. Spec · Cursor Dual-Track TDD 체계 구축 보고서 프롬프트
+
+UnitConverter `spec` 브랜치에서 **기술 명세 + Cursor TDD 체계** 구축 결과를 `Report/04.REPORT.md` 형식으로 정리한다.
+
+## 역할
+
+- **너:** 기술 리드 — Mom Test·워크북 산출물을 spec·TDD 인프라 보고서로 통합
+- **사용자:** UnitConverter_27 실습자
+
+## 선행 조건
+
+다음이 존재하거나 방금 생성되었는지 확인:
+
+- 루트: `README.md`, `TRACEABILITY.md`, `ARCHITECTURE.md`
+- `.cursor/rules/tdd-rules.mdc`
+- `.cursor/commands/tdd-red.md`, `tdd-green.md`
+- `.cursor/skills/unit-converter-tdd/SKILL.md`
+- 참조: `Report/01.REPORT.md`, `Report/03.WORKBOOK.md`
+
+## 보고서 작성 절차
+
+1. **요약** — spec 브랜치에서 무엇을 구축했는지 2~3문장 (구현 착수 여부 명시)
+2. **Mom Test → Spec 연결표** — 성공 기준 4개와 명세·TDD 대응
+3. **산출물 목록** — 명세 3종 + Cursor Rule/Command/Skill 경로·상태
+4. **Dual-Track TDD** — Track A/B, RED/GREEN/REFACTOR, 금지 사항
+5. **TRACEABILITY 로드맵** — P0 ID 우선 순서
+6. **워크북 §5 체크리스트** — 완료/미완료 반영
+7. **미완료·리스크** — 패키지 미구현, pytest 미설정 등
+8. **다음 액션** — FR-01 RED부터 등 구체적 3~4단계
+
+## 작성 규칙
+
+- 과거 완료 사실과 **미구현**을 명확히 구분
+- Mom Test **진짜 문제** 한 문장 인용 (솔루션名 남용 금지)
+- 파일 경로는 저장소 루트 기준 **상대 링크**
+- 표·체크리스트 사용; 장황한 코드 블록 지양
+
+## 산출물
+
+- 보고서: `Report/04.REPORT.md`
+- 본 프롬프트: `Prompting/04.REPORT.prompt` (쌍 유지)
+
+## 갱신 시점
+
+다음 경우 `04.REPORT.md`를 갱신:
+
+- `unit_converter/` 패키지·`tests/` 최초 생성
+- P0 TRACEABILITY ID 전부 GREEN
+- P1 EXT 항목 착수·완료
+- Cursor Rule/Command/Skill 변경

@@ -1,0 +1,43 @@
+---
+description: UnitConverter TDD·도메인 규칙 — 비율 단일 출처, OCP/SRP, RED 단계 제약
+alwaysApply: true
+---
+
+# TDD Rules (UnitConverter)
+
+## 변환 비율 — 단일 출처
+
+- **1 meter = 3.28084 feet**
+- **1 meter = 1.09361 yard**
+- feet ↔ yard 변환은 **meter 경유**만 허용
+- **임의 상수·근사값 혼용 금지** (예: `3.281`, `3.28`, 하드코딩된 feet↔yard 직접 비율)
+- 비율은 `units.json` / YAML 또는 `LengthUnit` 정의의 **단일 출처**에서만 로드
+
+## 입력 검증 (필수)
+
+- 형식: `unit:value` (콜론 구분)
+- **음수** 거부
+- **잘못된 형식** (`meter`, `abc` 등) 오류 처리
+- **미지 단위** 명확한 오류 메시지
+
+## OCP
+
+- 새 단위 추가 = `LengthUnit` 구현 + `registry.register()`
+- **`converter.py` 수정 금지** (NFR-01)
+
+## SRP
+
+- **Parser** / **Registry** / **Converter** / **Formatter** 역할 분리 유지
+- 모듈 간 책임 침범 금지 (`ARCHITECTURE.md` 참조)
+
+## RED 단계 규칙
+
+- RED 단계에서 **구현 코드 작성 금지**
+- 테스트는 `pytest.fail("RED: ...")` **만** 허용
+- `@pytest.mark.skip` / `xfail` **금지**
+- **1 RED 묶음 = 1 커밋**
+
+## GREEN / REFACTOR
+
+- GREEN: 테스트 통과에 필요한 **최소** 구현만 추가
+- REFACTOR: 테스트 유지하며 구조 개선; OCP·SRP 위반 시 되돌림
