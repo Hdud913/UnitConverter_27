@@ -45,6 +45,7 @@ UnitConverter `spec` 브랜치에서 **기술 명세 + Cursor TDD 체계** 구�
 다음 경우 `04.REPORT.md`를 갱신:
 
 - `unit_converter/` 패키지·`tests/` 최초 생성
+- RED 스켈레톤 완료 → [`05.REPORT.md`](../Report/05.REPORT.md) · [`05.REPORT.prompt`](05.REPORT.prompt)
 - P0 TRACEABILITY ID 전부 GREEN
 - P1 EXT 항목 착수·완료
 - Cursor Rule/Command/Skill 변경
